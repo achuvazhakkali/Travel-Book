@@ -74,6 +74,7 @@
             text-align: center;
         }
 
+        /* Chapter of us changed to black with a glow effect */
         .nav-chapters h3 {
             font-size: 0.75rem;
             text-transform: uppercase;
@@ -91,6 +92,7 @@
             margin-bottom: 14px;
         }
 
+        /* Turned off link style and made it non-clickable text */
         .nav-chapters .chapter-text {
             text-decoration: none;
             color: #8a4f44;
@@ -151,40 +153,15 @@
             color: #382e2a;
         }
 
-        /* Sub-pages layout within each slide */
-        .sub-pages-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-
-        .sub-page {
-            background: #fdfbf7;
-            border: 1px solid #f2e9e4;
-            padding: 25px;
-            border-radius: 3px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-        }
-
-        .sub-page-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.3rem;
-            font-style: italic;
-            color: #b57c74;
-            margin-bottom: 12px;
-            text-align: center;
-        }
-
         .photo-container {
             width: 100%;
             overflow: hidden;
             border-radius: 2px;
             background: #f4ece6;
-            padding: 8px 8px 25px 8px;
+            padding: 12px 12px 35px 12px;
             background-color: #fff;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            margin-bottom: 25px;
         }
 
         .photo-container img {
@@ -201,10 +178,12 @@
 
         .story-text {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.15rem;
+            font-size: 1.3rem;
             color: #5c504a;
             font-style: italic;
             text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
             line-height: 1.6;
         }
 
@@ -222,9 +201,6 @@
             main {
                 margin-left: 0;
                 padding: 40px 20px;
-            }
-            .sub-pages-container {
-                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -260,27 +236,10 @@
                 <span>Autumn 2024</span>
                 <h2>Kyoto, Japan</h2>
             </div>
-            
-            <!-- Sub-pages grid for Chapter 1 -->
-            <div class="sub-pages-container">
-                <!-- Sub-page A -->
-                <div class="sub-page">
-                    <div class="sub-page-title">Part I: The Bamboo Groves</div>
-                    <div class="photo-container">
-                        <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=80" alt="Kyoto Bamboo Forest">
-                    </div>
-                    <p class="story-text">"Walking hand in hand through the bamboo groves before the world woke up. It felt like time completely stopped just for us."</p>
-                </div>
-
-                <!-- Sub-page B -->
-                <div class="sub-page">
-                    <div class="sub-page-title">Part II: Temple Whispers</div>
-                    <div class="photo-container">
-                        <img src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=1200&q=80" alt="Kyoto Temple">
-                    </div>
-                    <p class="story-text">"Quiet temple courtyards where we whispered wishes into the wind and watched the autumn leaves gently fall."</p>
-                </div>
+            <div class="photo-container">
+                <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=80" alt="Kyoto Bamboo Forest">
             </div>
+            <p class="story-text">"Walking hand in hand through the bamboo groves before the world woke up. It felt like time completely stopped just for us."</p>
         </section>
 
         <!-- Chapter 2 -->
@@ -289,27 +248,10 @@
                 <span>Summer 2025</span>
                 <h2>Amalfi Coast, Italy</h2>
             </div>
-            
-            <!-- Sub-pages grid for Chapter 2 -->
-            <div class="sub-pages-container">
-                <!-- Sub-page A -->
-                <div class="sub-page">
-                    <div class="sub-page-title">Part I: Cliffside Balconies</div>
-                    <div class="photo-container">
-                        <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1200&q=80" alt="Amalfi Coast View">
-                    </div>
-                    <p class="story-text">"Sharing lemon sorbet on the cliffside balcony, laughing as the warm Mediterranean breeze caught your hair."</p>
-                </div>
-
-                <!-- Sub-page B -->
-                <div class="sub-page">
-                    <div class="sub-page-title">Part II: Golden Sunsets</div>
-                    <div class="photo-container">
-                        <img src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1200&q=80" alt="Amalfi Sunset">
-                    </div>
-                    <p class="story-text">"Watching the sun melt into the blue sea, holding each other as the coastal lights began to twinkle."</p>
-                </div>
+            <div class="photo-container">
+                <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1200&q=80" alt="Amalfi Coast View">
             </div>
+            <p class="story-text">"Sharing lemon sorbet on the cliffside balcony, laughing as the warm Mediterranean breeze caught your hair."</p>
         </section>
 
     </main>
