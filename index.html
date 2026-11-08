@@ -111,7 +111,7 @@
             text-align: center;
         }
 
-        /* Main Content Book Pages (Reduced max-width to 780px for smaller slides) */
+        /* Main Content Book Pages */
         main {
             margin-left: 450px;
             flex: 1;
@@ -132,6 +132,13 @@
 
         .chapter:hover {
             transform: translateY(-3px);
+        }
+
+        /* Special Background Styling for Iceland Slide using side bar right bg.jpg */
+        #iceland {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.90)), url('side bar right bg.jpg');
+            background-size: cover;
+            background-position: center;
         }
 
         /* Book Cover Style for Chapter 1 */
@@ -363,7 +370,7 @@
             <p class="story-text">"Sharing lemon sorbet on the cliffside balcony, laughing as the warm Mediterranean breeze caught your hair."</p>
         </section>
 
-        <!-- Chapter 3 (New Slide Added) -->
+        <!-- Chapter 3 (With 'side bar right bg.jpg' background) -->
         <section id="iceland" class="chapter">
             <div class="chapter-header">
                 <span>Winter 2026</span>
