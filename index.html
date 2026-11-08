@@ -138,12 +138,13 @@
             flex: 1;
             padding: 40px 20px;
             display: flex;
-            justify-content: center;
-            align-content: start;
-            min-height: 120vh;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            min-height: 150vh;
         }
 
-        /* Chapter Card Styling: Increased width to 450px and height to 560px */
+        /* Chapter Card Styling */
         .chapter {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -341,10 +342,10 @@
         </div>
     </aside>
 
-    <!-- Middle Scrolling Area (Kyoto Slide) -->
+    <!-- Middle Scrolling Area (Kyoto Slides) -->
     <main>
-        <section id="kyoto" class="chapter">
-            <!-- Book Cover View -->
+        <!-- First Kyoto Slide -->
+        <section id="kyoto1" class="chapter">
             <div class="book-cover-container" id="coverContainer1">
                 <div class="cover-overlay">
                     <div class="chapter-header">
@@ -362,7 +363,6 @@
                 </div>
             </div>
 
-            <!-- Inside Content (Centralized) -->
             <div class="chapter-inner-content">
                 <div class="chapter-header">
                     <span>Autumn 2024</span>
@@ -374,34 +374,14 @@
                 <p class="story-text">"Walking hand in hand through the bamboo groves before the world woke up."</p>
             </div>
         </section>
-    </main>
 
-    <!-- Right Fixed Sidebar ('Forever') -->
-    <aside class="right-sidebar">
-        <div class="book-title">
-            <h1>Forever</h1>
-            <p>To Be Continued</p>
-        </div>
-
-        <nav class="nav-chapters">
-            <h3>Next Adventures</h3>
-            <ul>
-                <li><span class="chapter-text">Many more pages left to write together</span></li>
-                <li><span class="chapter-text">under the sun and stars.</span></li>
-            </ul>
-        </nav>
-
-        <div class="footer-note">
-            <p>♥</p>
-        </div>
-    </aside>
-
-    <script>
-        function openBookCover(containerId) {
-            const cover = document.getElementById(containerId);
-            cover.classList.add('open');
-        }
-    </script>
-
-</body>
-</html>
+        <!-- Second Kyoto Slide (Duplicated) -->
+        <section id="kyoto2" class="chapter">
+            <div class="book-cover-container" id="coverContainer2">
+                <div class="cover-overlay">
+                    <div class="chapter-header">
+                        <span>Autumn 2024</span>
+                        <h2>Kyoto, Japan</h2>
+                    </div>
+                    <div class="cover-image-container">
+                        <img src="
