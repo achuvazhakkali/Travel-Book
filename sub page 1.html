@@ -30,6 +30,12 @@
             line-height: 1.8;
             overflow-x: hidden;
             perspective: 1500px;
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        body.fade-out {
+            opacity: 0;
+            transform: scale(0.98);
         }
 
         /* Left Fixed Sidebar ('Our Story') */
@@ -253,4 +259,157 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             color: var(--accent-color);
-            font-weight: 400
+            font-weight: 400;
+        }
+
+        .chapter-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.9rem;
+            font-weight: 400;
+            font-style: italic;
+            margin-top: 4px;
+            color: #382e2a;
+        }
+
+        .photo-container {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 2px;
+            background: #f4ece6;
+            padding: 6px;
+            background-color: #fff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .story-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.05rem;
+            color: #5c504a;
+            font-style: italic;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 1100px) {
+            body {
+                flex-direction: column;
+            }
+            aside.left-sidebar, aside.right-sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+            }
+            main {
+                margin-left: 0;
+                margin-right: 0;
+                padding: 30px 20px;
+                min-height: auto;
+            }
+            .chapter {
+                width: 100%;
+                height: 520px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Left Fixed Sidebar ('Our Story') -->
+    <aside class="left-sidebar">
+        <div class="book-title">
+            <h1>Our Story</h1>
+            <p>Everywhere with You</p>
+        </div>
+
+        <nav class="nav-chapters">
+            <h3>Chapters of Us</h3>
+            <ul>
+                <li><span class="chapter-text">Hand in hand, surrounded by nature, and always</span></li>
+                <li><span class="chapter-text">holding each other then letting our love bloom.</span></li>
+            </ul>
+        </nav>
+
+        <div class="footer-note">
+            <p>"To love and to travel is to live twice."</p>
+        </div>
+    </aside>
+
+    <!-- Middle Scrolling Area -->
+    <main>
+        <section id="kyoto" class="chapter">
+            <div class="book-cover-container" id="coverContainer2">
+                <div class="cover-overlay">
+                    <div class="chapter-header">
+                        <span>Autumn 2024</span>
+                        <h2>Kyoto, Japan</h2>
+                    </div>
+                    <div class="cover-image-container">
+                        <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=80" alt="Kyoto Cover">
+                    </div>
+                    <!-- Click Button at Bottom Right Corner -->
+                    <button class="cover-click-btn" onclick="openBookCover('coverContainer2')">Click</button>
+                </div>
+            </div>
+
+            <div class="chapter-inner-content">
+                <div class="chapter-header">
+                    <span>Autumn 2024</span>
+                    <h2>Kyoto, Japan</h2>
+                </div>
+                <div class="photo-container">
+                    <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=80" alt="Kyoto Bamboo Forest">
+                </div>
+                <p class="story-text">"Walking hand in hand through the bamboo groves before the world woke up."</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Right Fixed Sidebar ('Forever') -->
+    <aside class="right-sidebar">
+        <div class="book-title">
+            <h1>Forever</h1>
+            <p>To Be Continued</p>
+        </div>
+
+        <nav class="nav-chapters">
+            <h3>Next Adventures</h3>
+            <ul>
+                <li><span class="chapter-text">Many more pages left to write together</span></li>
+                <li><span class="chapter-text">under the sun and stars.</span></li>
+            </ul>
+        </nav>
+
+        <div class="footer-note">
+            <p>♥</p>
+        </div>
+    </aside>
+
+    <script>
+        function openBookCover(containerId) {
+            const cover = document.getElementById(containerId);
+            cover.classList.add('open');
+            
+            // Triggers page peel animation and transitions to sub page 1.html smoothly
+            setTimeout(function() {
+                document.body.classList.add('fade-out');
+                setTimeout(function() {
+                    window.location.href = 'sub page 1.html';
+                }, 800);
+            }, 500);
+        }
+    </script>
+
+</body>
+</html>
