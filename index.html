@@ -111,21 +111,21 @@
             text-align: center;
         }
 
-        /* Main Content Book Pages (Matched margin-left to 450px so slides align properly) */
+        /* Main Content Book Pages (Reduced max-width to 780px for smaller slides) */
         main {
             margin-left: 450px;
             flex: 1;
-            padding: 70px 80px;
-            max-width: 1100px;
+            padding: 60px 50px;
+            max-width: 780px;
         }
 
         .chapter {
-            margin-bottom: 110px;
+            margin-bottom: 90px;
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            padding: 50px;
+            padding: 35px;
             border-radius: 4px;
-            box-shadow: 0 10px 30px rgba(181, 124, 116, 0.05);
+            box-shadow: 0 10px 25px rgba(181, 124, 116, 0.05);
             transition: transform 0.3s ease;
             position: relative;
         }
@@ -145,7 +145,7 @@
             transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1), opacity 1s ease;
             transform-origin: top;
             z-index: 5;
-            padding: 50px;
+            padding: 35px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -163,10 +163,10 @@
             overflow: hidden;
             border-radius: 2px;
             background: #f4ece6;
-            padding: 12px 12px 35px 12px;
+            padding: 10px 10px 25px 10px;
             background-color: #fff;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            margin-bottom: 20px;
         }
 
         .cover-image-container img {
@@ -187,8 +187,8 @@
             align-self: center;
             background: rgba(181, 124, 116, 0.2);
             border: 1px solid rgba(181, 124, 116, 0.6);
-            width: 50px;
-            height: 50px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -205,8 +205,8 @@
         }
 
         .cover-click-icon svg {
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
             fill: #4a403b;
         }
 
@@ -221,12 +221,12 @@
         }
 
         .chapter-header {
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             text-align: center;
         }
 
         .chapter-header span {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 3px;
             color: var(--accent-color);
@@ -235,10 +235,10 @@
 
         .chapter-header h2 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2.4rem;
+            font-size: 2.1rem;
             font-weight: 400;
             font-style: italic;
-            margin-top: 8px;
+            margin-top: 6px;
             color: #382e2a;
         }
 
@@ -247,10 +247,10 @@
             overflow: hidden;
             border-radius: 2px;
             background: #f4ece6;
-            padding: 12px 12px 35px 12px;
+            padding: 10px 10px 25px 10px;
             background-color: #fff;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            margin-bottom: 20px;
         }
 
         .photo-container img {
@@ -261,12 +261,12 @@
         }
 
         .story-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.3rem;
+            font-family: 'Cormorant Garamond, serif';
+            font-size: 1.15rem;
             color: #5c504a;
             font-style: italic;
             text-align: center;
-            max-width: 800px;
+            max-width: 650px;
             margin: 0 auto;
             line-height: 1.6;
         }
@@ -285,6 +285,7 @@
             main {
                 margin-left: 0;
                 padding: 40px 20px;
+                max-width: 100%;
             }
         }
     </style>
