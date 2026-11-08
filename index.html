@@ -31,9 +31,9 @@
             overflow-x: hidden;
         }
 
-        /* Romantic Sidebar with Custom Background Image */
+        /* Romantic Sidebar with Custom Background Image (Increased width to 340px) */
         aside {
-            width: 280px;
+            width: 340px;
             background-image: linear-gradient(rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.88)), url('sidebar bg.jpg');
             background-size: cover;
             background-position: center;
@@ -109,9 +109,9 @@
             text-align: center;
         }
 
-        /* Main Content Book Pages */
+        /* Main Content Book Pages (Matched margin-left to 340px) */
         main {
-            margin-left: 280px;
+            margin-left: 340px;
             flex: 1;
             padding: 70px 80px;
             max-width: 1100px;
@@ -144,7 +144,6 @@
             z-index: 5;
         }
 
-        /* Class added when cover is opened upward */
         .book-cover-container.open {
             transform: translateY(-110%) rotateX(15deg);
             opacity: 0;
@@ -189,7 +188,6 @@
             text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
-        /* Clickable Icon at bottom center of cover */
         .cover-click-icon {
             align-self: center;
             background: rgba(255, 255, 255, 0.2);
@@ -223,7 +221,6 @@
             60% {transform: translateY(-4px);}
         }
 
-        /* Sub-page content revealed underneath */
         .chapter-inner-content {
             display: none;
             opacity: 0;
@@ -349,7 +346,7 @@
                 </div>
             </div>
 
-            <!-- Inside Sub-page Content (Revealed after cover slides up) -->
+            <!-- Inside Sub-page Content -->
             <div class="chapter-inner-content" id="innerContent">
                 <div class="chapter-header">
                     <span>Autumn 2024</span>
@@ -382,10 +379,8 @@
             const cover = document.getElementById('coverContainer');
             const inner = document.getElementById('innerContent');
             
-            // Add open class to animate cover sliding upward
             cover.classList.add('open');
             
-            // Fade in the inner page content smoothly right after
             setTimeout(() => {
                 inner.classList.add('visible');
             }, 400);
