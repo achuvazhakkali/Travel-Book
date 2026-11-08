@@ -111,22 +111,23 @@
             text-align: center;
         }
 
-        /* Right Side Layout */
+        /* Right Side Balanced 2-Column Grid Layout */
         main {
             margin-left: 380px;
             flex: 1;
-            padding: 40px;
+            padding: 50px;
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+            gap: 30px;
             align-content: start;
-            max-width: 1200px;
+            max-width: 1100px;
         }
 
-        .chapter {
+        /* Shared dimensions and styling for both cards to make them identical */
+        .chapter, .right-sidebar-panel {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            padding: 20px;
+            padding: 30px 25px;
             border-radius: 4px;
             box-shadow: 0 10px 25px rgba(181, 124, 116, 0.05);
             transition: transform 0.3s ease;
@@ -137,29 +138,16 @@
             justify-content: space-between;
         }
 
-        .chapter:hover {
+        .chapter:hover, .right-sidebar-panel:hover {
             transform: translateY(-3px);
         }
 
-        /* Right-Side Panel matching exact size and background of 'Our Story' sidebar */
+        /* Right-Side Panel matching exact sidebar style and 'side bar right bg.jpg' background */
         .right-sidebar-panel {
-            width: 100%;
-            height: 480px;
             background-image: linear-gradient(rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.88)), url('side bar right bg.jpg');
             background-size: cover;
             background-position: center;
-            border: 1px solid var(--border-color);
-            padding: 40px 25px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            border-radius: 4px;
-            box-shadow: 0 10px 25px rgba(181, 124, 116, 0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .right-sidebar-panel:hover {
-            transform: translateY(-3px);
+            text-align: center;
         }
 
         /* Book Cover Style with Upward Slide Animation */
@@ -173,7 +161,7 @@
             transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1), opacity 1s ease;
             transform-origin: top;
             z-index: 5;
-            padding: 20px;
+            padding: 30px 25px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -301,7 +289,7 @@
         }
 
         /* Mobile Adjustments */
-        @media (max-width: 1300px) {
+        @media (max-width: 1000px) {
             main {
                 grid-template-columns: 1fr;
             }
@@ -379,7 +367,7 @@
             </div>
         </section>
 
-        <!-- Right-Side Panel matching exact sidebar size and 'side bar right bg.jpg' background -->
+        <!-- Right-Side Panel matching exact size and background of 'Our Story' sidebar -->
         <div class="right-sidebar-panel">
             <div class="book-title">
                 <h1>Forever</h1>
