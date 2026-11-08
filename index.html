@@ -159,88 +159,6 @@
             justify-content: space-between;
         }
 
-        /* Book Cover Style with Upward Slide Animation */
-        .book-cover-container {
-            position: absolute;
-            inset: 0;
-            background: var(--card-bg);
-            border-radius: 4px;
-            overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1), opacity 1s ease;
-            transform-origin: top;
-            z-index: 5;
-            padding: 45px 30px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .book-cover-container.open {
-            transform: translateY(-110%) rotateX(15deg);
-            opacity: 0;
-            pointer-events: none;
-            position: absolute;
-        }
-
-        .cover-image-container {
-            width: 100%;
-            overflow: hidden;
-            border-radius: 2px;
-            background: #f4ece6;
-            padding: 6px 6px 15px 6px;
-            background-color: #fff;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-        }
-
-        .cover-image-container img {
-            width: 100%;
-            height: 240px;
-            object-fit: cover;
-            display: block;
-            filter: saturate(0.9) contrast(1.05);
-        }
-
-        .cover-overlay {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 100%;
-        }
-
-        .cover-click-icon {
-            align-self: center;
-            background: rgba(181, 124, 116, 0.2);
-            border: 1px solid rgba(181, 124, 116, 0.6);
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(4px);
-            animation: bounce 2s infinite;
-        }
-
-        .cover-click-icon:hover {
-            background: rgba(181, 124, 116, 0.4);
-            transform: scale(1.1);
-        }
-
-        .cover-click-icon svg {
-            width: 16px;
-            height: 16px;
-            fill: #4a403b;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-8px);}
-            60% {transform: translateY(-4px);}
-        }
-
         .chapter-inner-content {
             display: flex;
             flex-direction: column;
@@ -282,7 +200,7 @@
 
         .photo-container img {
             width: 100%;
-            height: 240px;
+            height: 380px;
             object-fit: cover;
             display: block;
             filter: saturate(0.95) contrast(1.02);
@@ -342,55 +260,34 @@
         </div>
     </aside>
 
-    <!-- Middle Scrolling Area (Kyoto Slides) -->
+    <!-- Middle Scrolling Area -->
     <main>
-        <!-- First Kyoto Slide -->
-        <section id="kyoto1" class="chapter">
-            <div class="book-cover-container" id="coverContainer1">
-                <div class="cover-overlay">
-                    <div class="chapter-header">
-                        <span>Autumn 2024</span>
-                        <h2>kerala</h2>
-                    </div>
-                    <div class="cover-image-container">
-                        <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=80" alt="Kyoto Cover">
-                    </div>
-                    <div class="cover-click-icon" onclick="openBookCover('coverContainer1')" title="Open Chapter">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-
+        <!-- First Slide: Kerala with cover.png (Text & Button Removed) -->
+        <section id="kerala" class="chapter">
             <div class="chapter-inner-content">
                 <div class="chapter-header">
                     <span>Autumn 2024</span>
-                    <h2>Kyoto, Japan</h2>
+                    <h2>Kerala</h2>
                 </div>
                 <div class="photo-container">
-                    <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=80" alt="Kyoto Bamboo Forest">
+                    <img src="cover.png" alt="Kerala Cover">
                 </div>
-                <p class="story-text">"Walking hand in hand through the bamboo groves before the world woke up."</p>
+                <p class="story-text">"Where the backwaters meet the serene skies, our journey truly began."</p>
             </div>
         </section>
 
-        <!-- Second Kyoto Slide (Duplicated) -->
-        <section id="kyoto2" class="chapter">
+        <!-- Second Slide: Kyoto, Japan -->
+        <section id="kyoto" class="chapter">
             <div class="book-cover-container" id="coverContainer2">
-                <div class="cover-overlay">
-                    <div class="chapter-header">
-                        <span>Autumn 2024</span>
-                        <h2>Kyoto, Japan</h2>
-                    </div>
-                    <div class="cover-image-container">
-                        <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=80" alt="Kyoto Cover">
-                    </div>
-                    <div class="cover-click-icon" onclick="openBookCover('coverContainer2')" title="Open Chapter">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
-                        </svg>
-                    </div>
+                <div class="chapter-header" style="padding-top: 10px;">
+                    <span>Autumn 2024</span>
+                    <h2>Kyoto, Japan</h2>
+                </div>
+                <div class="cover-image-container">
+                    <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=80" alt="Kyoto Cover">
+                </div>
+                <div class="cover-click-icon" onclick="openBookCover('coverContainer2')" title="Open Chapter" style="align-self: center; background: rgba(181, 124, 116, 0.2); border: 1px solid rgba(181, 124, 116, 0.6); width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer;">
+                    <svg viewBox="0 0 24 24" style="width: 16px; height: 16px; fill: #4a403b;"><path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/></svg>
                 </div>
             </div>
 
@@ -430,7 +327,9 @@
     <script>
         function openBookCover(containerId) {
             const cover = document.getElementById(containerId);
-            cover.classList.add('open');
+            cover.style.transform = 'translateY(-110%) rotateX(15deg)';
+            cover.style.opacity = '0';
+            cover.style.pointerEvents = 'none';
         }
     </script>
 
