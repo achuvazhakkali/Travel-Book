@@ -28,6 +28,7 @@
             display: flex;
             min-height: 100vh;
             line-height: 1.8;
+            overflow-x: hidden;
         }
 
         /* Romantic Sidebar with Custom Background Image */
@@ -45,6 +46,7 @@
             height: 100vh;
             overflow-y: auto;
             box-shadow: 2px 0 15px rgba(181, 124, 116, 0.04);
+            z-index: 10;
         }
 
         .book-title {
@@ -74,7 +76,6 @@
             text-align: center;
         }
 
-        /* Chapter of us changed to black with a glow effect */
         .nav-chapters h3 {
             font-size: 0.75rem;
             text-transform: uppercase;
@@ -92,7 +93,6 @@
             margin-bottom: 14px;
         }
 
-        /* Turned off link style and made it non-clickable text */
         .nav-chapters .chapter-text {
             text-decoration: none;
             color: #8a4f44;
@@ -129,6 +129,110 @@
 
         .chapter:hover {
             transform: translateY(-3px);
+        }
+
+        /* Book Cover Style for Chapter 1 */
+        .book-cover-container {
+            position: relative;
+            width: 100%;
+            height: 520px;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1), opacity 1s ease;
+            transform-origin: top;
+            z-index: 5;
+        }
+
+        /* Class added when cover is opened upward */
+        .book-cover-container.open {
+            transform: translateY(-110%) rotateX(15deg);
+            opacity: 0;
+            pointer-events: none;
+            position: absolute;
+        }
+
+        .cover-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: saturate(0.9) contrast(1.05);
+        }
+
+        .cover-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.2) 60%, rgba(0,0,0,0.1) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 40px;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .cover-header span {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #f3eee9;
+            font-weight: 300;
+        }
+
+        .cover-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3rem;
+            font-weight: 400;
+            font-style: italic;
+            margin-top: 10px;
+            color: #ffffff;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        /* Clickable Icon at bottom center of cover */
+        .cover-click-icon {
+            align-self: center;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(4px);
+            animation: bounce 2s infinite;
+        }
+
+        .cover-click-icon:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(1.1);
+        }
+
+        .cover-click-icon svg {
+            width: 20px;
+            height: 20px;
+            fill: #ffffff;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-8px);}
+            60% {transform: translateY(-4px);}
+        }
+
+        /* Sub-page content revealed underneath */
+        .chapter-inner-content {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+
+        .chapter-inner-content.visible {
+            display: block;
+            opacity: 1;
         }
 
         .chapter-header {
@@ -169,11 +273,6 @@
             height: auto;
             display: block;
             filter: saturate(0.95) contrast(1.02);
-            transition: transform 0.6s ease;
-        }
-
-        .photo-container img:hover {
-            transform: scale(1.03);
         }
 
         .story-text {
@@ -230,16 +329,38 @@
     <!-- Right Side Pages -->
     <main>
         
-        <!-- Chapter 1 -->
+        <!-- Chapter 1 with Cover Page & Upward Slide Animation -->
         <section id="kyoto" class="chapter">
-            <div class="chapter-header">
-                <span>Autumn 2024</span>
-                <h2>Kyoto, Japan</h2>
+            
+            <!-- Book Cover View -->
+            <div class="book-cover-container" id="coverContainer">
+                <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=80" alt="Kyoto Cover" class="cover-image">
+                <div class="cover-overlay">
+                    <div class="cover-header">
+                        <span>Autumn 2024</span>
+                        <h2>Kyoto, Japan</h2>
+                    </div>
+                    <!-- Click Icon at Bottom Center -->
+                    <div class="cover-click-icon" onclick="openBookCover()" title="Open Chapter">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                        </svg>
+                    </div>
+                </div>
             </div>
-            <div class="photo-container">
-                <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=80" alt="Kyoto Bamboo Forest">
+
+            <!-- Inside Sub-page Content (Revealed after cover slides up) -->
+            <div class="chapter-inner-content" id="innerContent">
+                <div class="chapter-header">
+                    <span>Autumn 2024</span>
+                    <h2>Kyoto, Japan</h2>
+                </div>
+                <div class="photo-container">
+                    <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=80" alt="Kyoto Bamboo Forest">
+                </div>
+                <p class="story-text">"Walking hand in hand through the bamboo groves before the world woke up. It felt like time completely stopped just for us."</p>
             </div>
-            <p class="story-text">"Walking hand in hand through the bamboo groves before the world woke up. It felt like time completely stopped just for us."</p>
+            
         </section>
 
         <!-- Chapter 2 -->
@@ -255,6 +376,21 @@
         </section>
 
     </main>
+
+    <script>
+        function openBookCover() {
+            const cover = document.getElementById('coverContainer');
+            const inner = document.getElementById('innerContent');
+            
+            // Add open class to animate cover sliding upward
+            cover.classList.add('open');
+            
+            // Fade in the inner page content smoothly right after
+            setTimeout(() => {
+                inner.classList.add('visible');
+            }, 400);
+        }
+    </script>
 
 </body>
 </html>
