@@ -63,7 +63,7 @@
 
         .book-title p {
             font-size: 0.8rem;
-            color: #000000; /* Black color for Everywhere with You */
+            color: #000000;
             font-weight: 400;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -74,12 +74,14 @@
             text-align: center;
         }
 
+        /* Chapter of us changed to black with a glow effect */
         .nav-chapters h3 {
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 3px;
-            color: #8c7e77;
+            color: #000000;
             margin-bottom: 20px;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.9), 0 0 12px rgba(181, 124, 116, 0.4);
         }
 
         .nav-chapters ul {
@@ -90,17 +92,13 @@
             margin-bottom: 14px;
         }
 
-        .nav-chapters a {
+        /* Turned off link style and made it non-clickable text */
+        .nav-chapters .chapter-text {
             text-decoration: none;
-            color: #8a4f44; /* Warm chapter text color */
+            color: #8a4f44;
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.1rem;
-            transition: color 0.3s ease;
-        }
-
-        .nav-chapters a:hover {
-            color: var(--accent-color);
-            padding-left: 5px;
+            display: inline-block;
         }
 
         .footer-note {
@@ -225,9 +223,8 @@
         <nav class="nav-chapters">
             <h3>Chapters of Us</h3>
             <ul>
-                <li><a href="#kyoto">Wrapped in Mountain Mist</a></li>
-                <li><a href="#amalfi">Completely Lost in You</a></li>
-                <li><a href="#iceland">Chasing Lights in Iceland</a></li>
+                <li><span class="chapter-text">Wrapped in mountain mist</span></li>
+                <li><span class="chapter-text">completely lost in you</span></li>
             </ul>
         </nav>
 
@@ -265,20 +262,6 @@
                 </div>
             </div>
             <p class="story-text">"Sharing lemon sorbet on the cliffside balcony, laughing as the warm Mediterranean breeze caught your hair."</p>
-        </section>
-
-        <!-- Chapter 3 -->
-        <section id="iceland" class="chapter">
-            <div class="chapter-header">
-                <span>Winter 2026</span>
-                <h2>Ring Road, Iceland</h2>
-            </div>
-            <div class="photo-grid">
-                <div class="photo-container">
-                    <img src="https://images.unsplash.com/photo-1504893524553-eefd5d95952b?auto=format&fit=crop&w=1200&q=80" alt="Icelandic Landscape">
-                </div>
-            </div>
-            <p class="story-text">"Wrapped in blankets under the freezing night sky, watching the green northern lights paint the dark just above us."</p>
         </section>
 
     </main>
