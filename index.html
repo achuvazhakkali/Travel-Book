@@ -384,4 +384,55 @@
                         <h2>Kyoto, Japan</h2>
                     </div>
                     <div class="cover-image-container">
-                        <img src="
+                        <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=80" alt="Kyoto Cover">
+                    </div>
+                    <div class="cover-click-icon" onclick="openBookCover('coverContainer2')" title="Open Chapter">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chapter-inner-content">
+                <div class="chapter-header">
+                    <span>Autumn 2024</span>
+                    <h2>Kyoto, Japan</h2>
+                </div>
+                <div class="photo-container">
+                    <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=80" alt="Kyoto Bamboo Forest">
+                </div>
+                <p class="story-text">"Walking hand in hand through the bamboo groves before the world woke up."</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Right Fixed Sidebar ('Forever') -->
+    <aside class="right-sidebar">
+        <div class="book-title">
+            <h1>Forever</h1>
+            <p>To Be Continued</p>
+        </div>
+
+        <nav class="nav-chapters">
+            <h3>Next Adventures</h3>
+            <ul>
+                <li><span class="chapter-text">Many more pages left to write together</span></li>
+                <li><span class="chapter-text">under the sun and stars.</span></li>
+            </ul>
+        </nav>
+
+        <div class="footer-note">
+            <p>♥</p>
+        </div>
+    </aside>
+
+    <script>
+        function openBookCover(containerId) {
+            const cover = document.getElementById(containerId);
+            cover.classList.add('open');
+        }
+    </script>
+
+</body>
+</html>
