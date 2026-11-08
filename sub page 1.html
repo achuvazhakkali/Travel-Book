@@ -1,1 +1,410 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Love Story in Travels</title>
+    <!-- Romantic, elegant fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #faf6f2; /* Soft warm ivory */
+            --text-color: #4a403b;
+            --accent-color: #b57c74; /* Romantic dusty rose */
+            --border-color: #ebdcd3;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            min-height: 100vh;
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* Left Fixed Sidebar ('Our Story') */
+        aside.left-sidebar {
+            width: 380px;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.88)), url('sidebar bg.jpg');
+            background-size: cover;
+            background-position: center;
+            border-right: 1px solid var(--border-color);
+            padding: 40px 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            overflow-y: auto;
+            box-shadow: 2px 0 15px rgba(181, 124, 116, 0.04);
+            z-index: 10;
+        }
+
+        /* Right Fixed Sidebar ('Forever') */
+        aside.right-sidebar {
+            width: 380px;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.88)), url('side bar right bg.jpg');
+            background-size: cover;
+            background-position: center;
+            border-left: 1px solid var(--border-color);
+            padding: 40px 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            right: 0;
+            height: 100vh;
+            overflow-y: auto;
+            box-shadow: -2px 0 15px rgba(181, 124, 116, 0.04);
+            z-index: 10;
+        }
+
+        .book-title {
+            text-align: center;
+        }
+
+        .book-title h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            font-style: italic;
+            color: #382e2a;
+            margin-bottom: 6px;
+            line-height: 1.2;
+        }
+
+        .book-title p {
+            font-size: 0.75rem;
+            color: #000000;
+            font-weight: 400;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .nav-chapters {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .nav-chapters h3 {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #000000;
+            margin-bottom: 15px;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.9);
+        }
+
+        .nav-chapters ul {
+            list-style: none;
+        }
+
+        .nav-chapters li {
+            margin-bottom: 12px;
+        }
+
+        .nav-chapters .chapter-text {
+            text-decoration: none;
+            color: #8a4f44;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            display: inline-block;
+        }
+
+        .footer-note {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.9rem;
+            color: #8c7e77;
+            font-style: italic;
+            text-align: center;
+        }
+
+        /* Middle Scrolling Area */
+        main {
+            margin-left: 380px;
+            margin-right: 380px;
+            flex: 1;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            min-height: 150vh;
+        }
+
+        /* Chapter Card Styling */
+        .chapter {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 45px 30px;
+            border-radius: 4px;
+            box-shadow: 0 10px 25px rgba(181, 124, 116, 0.05);
+            position: relative;
+            width: 550px;
+            height: 650px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Book Cover Style with Upward Slide Animation */
+        .book-cover-container {
+            position: absolute;
+            inset: 0;
+            background: var(--card-bg);
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1), opacity 1s ease;
+            transform-origin: top;
+            z-index: 5;
+            padding: 45px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .book-cover-container.open {
+            transform: translateY(-110%) rotateX(15deg);
+            opacity: 0;
+            pointer-events: none;
+            position: absolute;
+        }
+
+        .cover-image-container {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 2px;
+            background: #f4ece6;
+            padding: 6px 6px 15px 6px;
+            background-color: #fff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        }
+
+        .cover-image-container img {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            display: block;
+            filter: saturate(0.9) contrast(1.05);
+        }
+
+        .cover-overlay {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .cover-click-icon {
+            align-self: center;
+            background: rgba(181, 124, 116, 0.2);
+            border: 1px solid rgba(181, 124, 116, 0.6);
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(4px);
+            animation: bounce 2s infinite;
+        }
+
+        .cover-click-icon:hover {
+            background: rgba(181, 124, 116, 0.4);
+            transform: scale(1.1);
+        }
+
+        .cover-click-icon svg {
+            width: 16px;
+            height: 16px;
+            fill: #4a403b;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-8px);}
+            60% {transform: translateY(-4px);}
+        }
+
+        .chapter-inner-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            text-align: center;
+        }
+
+        .chapter-header {
+            text-align: center;
+        }
+
+        .chapter-header span {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-color);
+            font-weight: 400;
+        }
+
+        .chapter-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.9rem;
+            font-weight: 400;
+            font-style: italic;
+            margin-top: 4px;
+            color: #382e2a;
+        }
+
+        .photo-container {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            border-radius: 2px;
+            background: #f4ece6;
+            padding: 6px;
+            background-color: #fff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .story-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.05rem;
+            color: #5c504a;
+            font-style: italic;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 1100px) {
+            body {
+                flex-direction: column;
+            }
+            aside.left-sidebar, aside.right-sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+            }
+            main {
+                margin-left: 0;
+                margin-right: 0;
+                padding: 30px 20px;
+                min-height: auto;
+            }
+            .chapter {
+                width: 100%;
+                height: 520px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Left Fixed Sidebar ('Our Story') -->
+    <aside class="left-sidebar">
+        <div class="book-title">
+            <h1>Our Story</h1>
+            <p>Everywhere with You</p>
+        </div>
+
+        <nav class="nav-chapters">
+            <h3>Chapters of Us</h3>
+            <ul>
+                <li><span class="chapter-text">Hand in hand, surrounded by nature, and always</span></li>
+                <li><span class="chapter-text">holding each other then letting our love bloom.</span></li>
+            </ul>
+        </nav>
+
+        <div class="footer-note">
+            <p>"To love and to travel is to live twice."</p>
+        </div>
+    </aside>
+
+    <!-- Middle Scrolling Area (Only Kyoto Slide remains) -->
+    <main>
+        <section id="kyoto" class="chapter">
+            <div class="book-cover-container" id="coverContainer2">
+                <div class="cover-overlay" style="padding: 20px 0;">
+                    <div class="chapter-header">
+                        <span>Autumn 2024</span>
+                        <h2>Kyoto, Japan</h2>
+                    </div>
+                    <div class="cover-image-container">
+                        <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=80" alt="Kyoto Cover">
+                    </div>
+                    <div class="cover-click-icon" onclick="openBookCover('coverContainer2')" title="Open Chapter">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chapter-inner-content">
+                <div class="chapter-header">
+                    <span>Autumn 2024</span>
+                    <h2>Kyoto, Japan</h2>
+                </div>
+                <div class="photo-container">
+                    <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=80" alt="Kyoto Bamboo Forest">
+                </div>
+                <p class="story-text">"Walking hand in hand through the bamboo groves before the world woke up."</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Right Fixed Sidebar ('Forever') -->
+    <aside class="right-sidebar">
+        <div class="book-title">
+            <h1>Forever</h1>
+            <p>To Be Continued</p>
+        </div>
+
+        <nav class="nav-chapters">
+            <h3>Next Adventures</h3>
+            <ul>
+                <li><span class="chapter-text">Many more pages left to write together</span></li>
+                <li><span class="chapter-text">under the sun and stars.</span></li>
+            </ul>
+        </nav>
+
+        <div class="footer-note">
+            <p>♥</p>
+        </div>
+    </aside>
+
+    <script>
+        function openBookCover(containerId) {
+            const cover = document.getElementById(containerId);
+            cover.classList.add('open');
+        }
+    </script>
+
+</body>
+</html>
