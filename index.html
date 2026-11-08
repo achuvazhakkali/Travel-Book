@@ -29,12 +29,6 @@
             min-height: 100vh;
             line-height: 1.8;
             overflow-x: hidden;
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        body.fade-out {
-            opacity: 0;
-            transform: scale(0.98);
         }
 
         /* Left Fixed Sidebar ('Our Story') */
@@ -147,7 +141,7 @@
             flex-direction: column;
             align-items: center;
             gap: 40px;
-            min-height: 150vh;
+            min-height: 180vh;
         }
 
         /* Chapter Card Styling */
@@ -253,8 +247,6 @@
             justify-content: space-between;
             height: 100%;
             text-align: center;
-            position: relative;
-            padding-bottom: 30px;
         }
 
         .chapter-header {
@@ -292,6 +284,14 @@
             justify-content: center;
         }
 
+        /* Fully contained fit for cover.png */
+        .photo-container img.fit-cover {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
         .photo-container img {
             width: 100%;
             height: 100%;
@@ -306,31 +306,6 @@
             font-style: italic;
             text-align: center;
             line-height: 1.5;
-        }
-
-        /* Click Here Button at Right Side Bottom */
-        .click-here-btn {
-            position: absolute;
-            bottom: 5px;
-            right: 0px;
-            background: var(--accent-color);
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            border-radius: 20px;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(181, 124, 116, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .click-here-btn:hover {
-            background: #9d685f;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(181, 124, 116, 0.4);
         }
 
         /* Mobile Adjustments */
@@ -378,8 +353,16 @@
         </div>
     </aside>
 
-    <!-- Middle Scrolling Area (Only Kyoto Slide remains) -->
+    <!-- Middle Scrolling Area -->
     <main>
+        <!-- First Slide: Kerala (cover.png fully contained) -->
+        <section id="kerala" class="chapter">
+            <div class="photo-container" style="width: 100%; height: 100%; background: #fdfbf7;">
+                <img src="cover.png" alt="Kerala Cover" class="fit-cover">
+            </div>
+        </section>
+
+        <!-- Second Slide: Kyoto, Japan -->
         <section id="kyoto" class="chapter">
             <div class="book-cover-container" id="coverContainer2">
                 <div class="cover-overlay" style="padding: 20px 0;">
@@ -407,9 +390,6 @@
                     <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=80" alt="Kyoto Bamboo Forest">
                 </div>
                 <p class="story-text">"Walking hand in hand through the bamboo groves before the world woke up."</p>
-                
-                <!-- Click Here Button linked with page transition to sub page 1.html -->
-                <button class="click-here-btn" onclick="transitionToPage('sub page 1.html')">Click Here</button>
             </div>
         </section>
     </main>
@@ -438,13 +418,6 @@
         function openBookCover(containerId) {
             const cover = document.getElementById(containerId);
             cover.classList.add('open');
-        }
-
-        function transitionToPage(url) {
-            document.body.classList.add('fade-out');
-            setTimeout(function() {
-                window.location.href = url;
-            }, 800); // Matches transition duration
         }
     </script>
 
