@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Love Story in Travels</title>
+    <!-- Romantic, elegant fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #faf6f2; /* Soft warm ivory */
+            --text-color: #4a403b;
+            --accent-color: #b57c74; /* Romantic dusty rose */
+            --border-color: #ebdcd3;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            min-height: 100vh;
+            line-height: 1.8;
+        }
+
+        /* Romantic Sidebar */
+        aside {
+            width: 380px;
+            background-color: var(--card-bg);
+            border-right: 1px solid var(--border-color);
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            box-shadow: 2px 0 15px rgba(181, 124, 116, 0.04);
+        }
+
+        .book-title h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem;
+            font-weight: 600;
+            font-style: italic;
+            color: #382e2a;
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+
+        .book-title p {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            font-weight: 300;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .nav-chapters {
+            margin-top: 40px;
+        }
+
+        .nav-chapters h3 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #a89f9a;
+            margin-bottom: 20px;
+        }
+
+        .nav-chapters ul {
+            list-style: none;
+        }
+
+        .nav-chapters li {
+            margin-bottom: 14px;
+        }
+
+        .nav-chapters a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-chapters a:hover {
+            color: var(--accent-color);
+            padding-left: 5px;
+        }
+
+        .footer-note {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            color: #8c7e77;
+            font-style: italic;
+        }
+
+        /* Main Content Book Pages */
+        main {
+            margin-left: 380px;
+            flex: 1;
+            padding: 70px 90px;
+            max-width: 1050px;
+        }
+
+        .chapter {
+            margin-bottom: 110px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 50px;
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(181, 124, 116, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .chapter:hover {
+            transform: translateY(-3px);
+        }
+
+        .chapter-header {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .chapter-header span {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent-color);
+            font-weight: 400;
+        }
+
+        .chapter-header h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.4rem;
+            font-weight: 400;
+            font-style: italic;
+            margin-top: 8px;
+            color: #382e2a;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .photo-container {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 2px;
+            background: #f4ece6;
+            padding: 12px 12px 35px 12px; /* Gives a polaroid / framed photo look */
+            background-color: #fff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: saturate(0.95) contrast(1.02); /* Softens photos for a vintage romance vibe */
+            transition: transform 0.6s ease;
+        }
+
+        .photo-container img:hover {
+            transform: scale(1.03);
+        }
+
+        .story-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: #5c504a;
+            font-style: italic;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 900px) {
+            body {
+                flex-direction: column;
+            }
+            aside {
+                position: relative;
+                width: 100%;
+                height: auto;
+                padding: 40px 20px;
+            }
+            main {
+                margin-left: 0;
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Left Sidebar -->
+    <aside>
+        <div class="book-title">
+            <h1>Our Love Story</h1>
+            <p>Everywhere with You</p>
+        </div>
+
+        <nav class="nav-chapters">
+            <h3>Chapters of Us</h3>
+            <ul>
+                <li><a href="#kyoto">Where We Got Lost in Kyoto</a></li>
+                <li><a href="#amalfi">Sunsets in Amalfi</a></li>
+                <li><a href="#iceland">Chasing Lights in Iceland</a></li>
+            </ul>
+        </nav>
+
+        <div class="footer-note">
+            <p>"To love and to travel is to live twice."</p>
+        </div>
+    </aside>
+
+    <!-- Right Side Pages -->
+    <main>
+        
+        <!-- Chapter 1 -->
+        <section id="kyoto" class="chapter">
+            <div class="chapter-header">
+                <span>Autumn 2024</span>
+                <h2>Kyoto, Japan</h2>
+            </div>
+            <div class="photo-grid">
+                <div class="photo-container">
+                    <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=80" alt="Kyoto Bamboo Forest">
+                </div>
+            </div>
+            <p class="story-text">"Walking hand in hand through the bamboo groves before the world woke up. It felt like time completely stopped just for us."</p>
+        </section>
+
+        <!-- Chapter 2 -->
+        <section id="amalfi" class="chapter">
+            <div class="chapter-header">
+                <span>Summer 2025</span>
+                <h2>Amalfi Coast, Italy</h2>
+            </div>
+            <div class="photo-grid">
+                <div class="photo-container">
+                    <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1200&q=80" alt="Amalfi Coast View">
+                </div>
+            </div>
+            <p class="story-text">"Sharing lemon sorbet on a cliffside balcony, laughing as the warm Mediterranean breeze caught your hair."</p>
+        </section>
+
+        <!-- Chapter 3 -->
+        <section id="iceland" class="chapter">
+            <div class="chapter-header">
+                <span>Winter 2026</span>
+                <h2>Ring Road, Iceland</h2>
+            </div>
+            <div class="photo-grid">
+                <div class="photo-container">
+                    <img src="https://images.unsplash.com/photo-1504893524553-eefd5d95952b?auto=format&fit=crop&w=1200&q=80" alt="Icelandic Landscape">
+                </div>
+            </div>
+            <p class="story-text">"Wrapped in blankets under the freezing night sky, watching the green northern lights paint the dark just above us."</p>
+        </section>
+
+    </main>
+
+</body>
+</html> 
