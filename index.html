@@ -30,10 +30,12 @@
             line-height: 1.8;
         }
 
-        /* Romantic Sidebar - Slimmed down */
+        /* Romantic Sidebar with Custom Background Image */
         aside {
             width: 280px;
-            background-color: var(--card-bg);
+            background-image: linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88)), url('sidebar-bg.jpg');
+            background-size: cover;
+            background-position: center;
             border-right: 1px solid var(--border-color);
             padding: 50px 30px;
             display: flex;
@@ -103,7 +105,7 @@
             font-style: italic;
         }
 
-        /* Main Content Book Pages - Adjusted margin to match new sidebar */
+        /* Main Content Book Pages */
         main {
             margin-left: 280px;
             flex: 1;
