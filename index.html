@@ -31,7 +31,7 @@
             overflow-x: hidden;
         }
 
-        /* Romantic Left Sidebar */
+        /* Romantic Left Sidebar ('Our Story' style) */
         aside {
             width: 380px;
             background-image: linear-gradient(rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.88)), url('sidebar bg.jpg');
@@ -111,16 +111,16 @@
             text-align: center;
         }
 
-        /* Horizontal Layout for Right Side */
+        /* Right Side Layout */
         main {
             margin-left: 380px;
             flex: 1;
             padding: 40px;
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 20px;
             align-content: start;
-            max-width: 1600px;
+            max-width: 1200px;
         }
 
         .chapter {
@@ -141,20 +141,25 @@
             transform: translateY(-3px);
         }
 
-        /* Right Panel Style */
+        /* Right-Side Panel matching exact size and background of 'Our Story' sidebar */
         .right-sidebar-panel {
+            width: 100%;
+            height: 480px;
             background-image: linear-gradient(rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.88)), url('side bar right bg.jpg');
             background-size: cover;
             background-position: center;
             border: 1px solid var(--border-color);
-            padding: 30px 20px;
+            padding: 40px 25px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             border-radius: 4px;
             box-shadow: 0 10px 25px rgba(181, 124, 116, 0.05);
-            height: 480px;
-            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .right-sidebar-panel:hover {
+            transform: translateY(-3px);
         }
 
         /* Book Cover Style with Upward Slide Animation */
@@ -374,18 +379,23 @@
             </div>
         </section>
 
-        <!-- Right-Side Panel matching 'Our Story' style -->
+        <!-- Right-Side Panel matching exact sidebar size and 'side bar right bg.jpg' background -->
         <div class="right-sidebar-panel">
             <div class="book-title">
-                <h1 style="font-size: 1.8rem;">Forever</h1>
-                <p style="font-size: 0.7rem;">To Be Continued</p>
+                <h1>Forever</h1>
+                <p>To Be Continued</p>
             </div>
-            <div class="nav-chapters">
-                <h3 style="font-size: 0.65rem;">Next Adventures</h3>
-                <p class="chapter-text" style="font-size: 0.95rem;">"Many more pages left to write together under the sun and stars."</p>
-            </div>
+
+            <nav class="nav-chapters">
+                <h3>Next Adventures</h3>
+                <ul>
+                    <li><span class="chapter-text">Many more pages left to write together</span></li>
+                    <li><span class="chapter-text">under the sun and stars.</span></li>
+                </ul>
+            </nav>
+
             <div class="footer-note">
-                <p style="font-size: 0.8rem;">♥</p>
+                <p>♥</p>
             </div>
         </div>
 
