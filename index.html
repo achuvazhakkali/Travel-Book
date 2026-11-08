@@ -29,6 +29,13 @@
             min-height: 100vh;
             line-height: 1.8;
             overflow-x: hidden;
+            perspective: 1500px;
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        body.fade-out {
+            opacity: 0;
+            transform: scale(0.98);
         }
 
         /* Left Fixed Sidebar ('Our Story') */
@@ -141,14 +148,14 @@
             flex-direction: column;
             align-items: center;
             gap: 40px;
-            min-height: 180vh;
+            min-height: 150vh;
         }
 
         /* Chapter Card Styling */
         .chapter {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            padding: 3px 3px;
+            padding: 45px 30px;
             border-radius: 4px;
             box-shadow: 0 10px 25px rgba(181, 124, 116, 0.05);
             position: relative;
@@ -159,7 +166,7 @@
             justify-content: space-between;
         }
 
-        /* Book Cover Style with Upward Slide Animation */
+        /* Book Cover Page Peel/Curl Animation Container */
         .book-cover-container {
             position: absolute;
             inset: 0;
@@ -167,8 +174,8 @@
             border-radius: 4px;
             overflow: hidden;
             box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1), opacity 1s ease;
-            transform-origin: top;
+            transform-origin: top right;
+            transition: transform 1.2s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 1s ease;
             z-index: 5;
             padding: 45px 30px;
             display: flex;
@@ -177,10 +184,10 @@
         }
 
         .book-cover-container.open {
-            transform: translateY(-110%) rotateX(15deg);
+            transform: translateY(-30px) translateX(30px) rotate(15deg) scale(0.9);
             opacity: 0;
             pointer-events: none;
-            position: absolute;
+            box-shadow: -20px 20px 50px rgba(0,0,0,0.2);
         }
 
         .cover-image-container {
@@ -206,39 +213,33 @@
             flex-direction: column;
             justify-content: space-between;
             height: 100%;
+            position: relative;
         }
 
-        .cover-click-icon {
-            align-self: center;
-            background: rgba(181, 124, 116, 0.2);
-            border: 1px solid rgba(181, 124, 116, 0.6);
-            width: 38px;
-            height: 38px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        /* Click Button at Bottom Right Corner */
+        .cover-click-btn {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 20px;
             cursor: pointer;
+            box-shadow: 0 4px 12px rgba(181, 124, 116, 0.3);
             transition: all 0.3s ease;
-            backdrop-filter: blur(4px);
-            animation: bounce 2s infinite;
+            z-index: 10;
         }
 
-        .cover-click-icon:hover {
-            background: rgba(181, 124, 116, 0.4);
-            transform: scale(1.1);
-        }
-
-        .cover-click-icon svg {
-            width: 16px;
-            height: 16px;
-            fill: #4a403b;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-            40% {transform: translateY(-8px);}
-            60% {transform: translateY(-4px);}
+        .cover-click-btn:hover {
+            background: #9d685f;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(181, 124, 116, 0.4);
         }
 
         .chapter-inner-content {
@@ -276,20 +277,12 @@
             overflow: hidden;
             border-radius: 2px;
             background: #f4ece6;
-            padding: 3px;
+            padding: 6px;
             background-color: #fff;
             box-shadow: 0 4px 12px rgba(0,0,0,0.06);
             display: flex;
             align-items: center;
             justify-content: center;
-        }
-
-        /* Fully contained fit for cover.png */
-        .photo-container img.fit-cover {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            display: block;
         }
 
         .photo-container img {
@@ -355,17 +348,9 @@
 
     <!-- Middle Scrolling Area -->
     <main>
-        <!-- First Slide: Kerala (cover.png fully contained) -->
-        <section id="kerala" class="chapter">
-            <div class="photo-container" style="width: 100%; height: 100%; background: #fdfbf7;">
-                <img src="cover.png" alt="Kerala Cover" class="fit-cover">
-            </div>
-        </section>
-
-        <!-- Second Slide: Kyoto, Japan -->
         <section id="kyoto" class="chapter">
             <div class="book-cover-container" id="coverContainer2">
-                <div class="cover-overlay" style="padding: 20px 0;">
+                <div class="cover-overlay">
                     <div class="chapter-header">
                         <span>Autumn 2024</span>
                         <h2>Kyoto, Japan</h2>
@@ -373,11 +358,8 @@
                     <div class="cover-image-container">
                         <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=80" alt="Kyoto Cover">
                     </div>
-                    <div class="cover-click-icon" onclick="subpage 1.html" title="Open Chapter">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
-                        </svg>
-                    </div>
+                    <!-- Click Button linking to subpage with space encoded as %20 -->
+                    <button class="cover-click-btn" onclick="openBookCover('coverContainer2', 'subpage%201.html')">Click</button>
                 </div>
             </div>
 
@@ -415,9 +397,16 @@
     </aside>
 
     <script>
-        function openBookCover(containerId) {
+        function openBookCover(containerId, targetUrl) {
             const cover = document.getElementById(containerId);
             cover.classList.add('open');
+            
+            setTimeout(function() {
+                document.body.classList.add('fade-out');
+                setTimeout(function() {
+                    window.location.href = targetUrl;
+                }, 800);
+            }, 500);
         }
     </script>
 
