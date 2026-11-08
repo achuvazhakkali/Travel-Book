@@ -31,9 +31,9 @@
             overflow-x: hidden;
         }
 
-        /* Romantic Sidebar (Width set to 450px) */
+        /* Romantic Sidebar */
         aside {
-            width: 450px;
+            width: 420px;
             background-image: linear-gradient(rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.88)), url('sidebar bg.jpg');
             background-size: cover;
             background-position: center;
@@ -111,37 +111,44 @@
             text-align: center;
         }
 
-        /* Main Content Book Pages */
+        /* 3-Column Horizontal Layout for Right Side Slides */
         main {
-            margin-left: 450px;
+            margin-left: 420px;
             flex: 1;
-            padding: 60px 50px;
-            max-width: 780px;
+            padding: 50px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Arranges into 3 horizontal columns */
+            gap: 30px;
+            align-content: start;
+            max-width: 1450px;
         }
 
         .chapter {
-            margin-bottom: 90px;
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            padding: 35px;
+            padding: 25px;
             border-radius: 4px;
             box-shadow: 0 10px 25px rgba(181, 124, 116, 0.05);
             transition: transform 0.3s ease;
             position: relative;
+            height: 520px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .chapter:hover {
             transform: translateY(-3px);
         }
 
-        /* Special Background Styling for Iceland Slide using side bar right bg.jpg */
+        /* Special Background Styling for the 3rd Slide using side bar right bg.jpg */
         #iceland {
             background-image: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.90)), url('side bar right bg.jpg');
             background-size: cover;
             background-position: center;
         }
 
-        /* Book Cover Style for Chapter 1 */
+        /* Book Cover Style with Upward Slide Animation */
         .book-cover-container {
             position: absolute;
             inset: 0;
@@ -152,10 +159,17 @@
             transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1), opacity 1s ease;
             transform-origin: top;
             z-index: 5;
-            padding: 35px;
+            padding: 25px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+        }
+
+        /* Specific background for 3rd slide's cover container to match its card style */
+        #iceland .book-cover-container {
+            background-image: linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.90)), url('side bar right bg.jpg');
+            background-size: cover;
+            background-position: center;
         }
 
         .book-cover-container.open {
@@ -170,15 +184,15 @@
             overflow: hidden;
             border-radius: 2px;
             background: #f4ece6;
-            padding: 10px 10px 25px 10px;
+            padding: 8px 8px 20px 8px;
             background-color: #fff;
             box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-            margin-bottom: 20px;
         }
 
         .cover-image-container img {
             width: 100%;
-            height: auto;
+            height: 180px;
+            object-fit: cover;
             display: block;
             filter: saturate(0.9) contrast(1.05);
         }
@@ -194,8 +208,8 @@
             align-self: center;
             background: rgba(181, 124, 116, 0.2);
             border: 1px solid rgba(181, 124, 116, 0.6);
-            width: 44px;
-            height: 44px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -212,8 +226,8 @@
         }
 
         .cover-click-icon svg {
-            width: 18px;
-            height: 18px;
+            width: 16px;
+            height: 16px;
             fill: #4a403b;
         }
 
@@ -224,28 +238,30 @@
         }
 
         .chapter-inner-content {
-            display: block;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
         }
 
         .chapter-header {
-            margin-bottom: 20px;
             text-align: center;
         }
 
         .chapter-header span {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             color: var(--accent-color);
             font-weight: 400;
         }
 
         .chapter-header h2 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 2.1rem;
+            font-size: 1.8rem;
             font-weight: 400;
             font-style: italic;
-            margin-top: 6px;
+            margin-top: 4px;
             color: #382e2a;
         }
 
@@ -254,32 +270,33 @@
             overflow: hidden;
             border-radius: 2px;
             background: #f4ece6;
-            padding: 10px 10px 25px 10px;
+            padding: 8px 8px 20px 8px;
             background-color: #fff;
             box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-            margin-bottom: 20px;
         }
 
         .photo-container img {
             width: 100%;
-            height: auto;
+            height: 180px;
+            object-fit: cover;
             display: block;
             filter: saturate(0.95) contrast(1.02);
         }
 
         .story-text {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.15rem;
+            font-size: 1.05rem;
             color: #5c504a;
             font-style: italic;
             text-align: center;
-            max-width: 650px;
-            margin: 0 auto;
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
         /* Mobile Adjustments */
-        @media (max-width: 900px) {
+        @media (max-width: 1200px) {
+            main {
+                grid-template-columns: 1fr;
+            }
             body {
                 flex-direction: column;
             }
@@ -291,105 +308,4 @@
             }
             main {
                 margin-left: 0;
-                padding: 40px 20px;
-                max-width: 100%;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Left Sidebar -->
-    <aside>
-        <div class="book-title">
-            <h1>Our Story</h1>
-            <p>Everywhere with You</p>
-        </div>
-
-        <nav class="nav-chapters">
-            <h3>Chapters of Us</h3>
-            <ul>
-                <li><span class="chapter-text">Hand in hand, surrounded by nature,and always</span></li>
-                <li><span class="chapter-text">holdig each other then letting our love bloom.</span></li>
-            </ul>
-        </nav>
-
-        <div class="footer-note">
-            <p>"To love and to travel is to live twice."</p>
-        </div>
-    </aside>
-
-    <!-- Right Side Pages -->
-    <main>
-        
-        <!-- Chapter 1 with Cover Page & Upward Slide Animation -->
-        <section id="kyoto" class="chapter">
-            
-            <!-- Book Cover View -->
-            <div class="book-cover-container" id="coverContainer">
-                <div class="cover-overlay">
-                    <div class="chapter-header">
-                        <span>Autumn 2024</span>
-                        <h2>Kyoto, Japan</h2>
-                    </div>
-                    <div class="cover-image-container">
-                        <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=80" alt="Kyoto Cover">
-                    </div>
-                    <!-- Click Icon at Bottom Center -->
-                    <div class="cover-click-icon" onclick="openBookCover()" title="Open Chapter">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Inside Sub-page Content -->
-            <div class="chapter-inner-content">
-                <div class="chapter-header">
-                    <span>Autumn 2024</span>
-                    <h2>Kyoto, Japan</h2>
-                </div>
-                <div class="photo-container">
-                    <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=1200&q=80" alt="Kyoto Bamboo Forest">
-                </div>
-                <p class="story-text">"Walking hand in hand through the bamboo groves before the world woke up. It felt like time completely stopped just for us."</p>
-            </div>
-            
-        </section>
-
-        <!-- Chapter 2 -->
-        <section id="amalfi" class="chapter">
-            <div class="chapter-header">
-                <span>Summer 2025</span>
-                <h2>Amalfi Coast, Italy</h2>
-            </div>
-            <div class="photo-container">
-                <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1200&q=80" alt="Amalfi Coast View">
-            </div>
-            <p class="story-text">"Sharing lemon sorbet on the cliffside balcony, laughing as the warm Mediterranean breeze caught your hair."</p>
-        </section>
-
-        <!-- Chapter 3 (With 'side bar right bg.jpg' background) -->
-        <section id="iceland" class="chapter">
-            <div class="chapter-header">
-                <span>Winter 2026</span>
-                <h2>Ring Road, Iceland</h2>
-            </div>
-            <div class="photo-container">
-                <img src="https://images.unsplash.com/photo-1504893524553-eefd5d95952b?auto=format&fit=crop&w=1200&q=80" alt="Icelandic Landscape">
-            </div>
-            <p class="story-text">"Wrapped in blankets under the freezing night sky, watching the green northern lights paint the dark just above us."</p>
-        </section>
-
-    </main>
-
-    <script>
-        function openBookCover() {
-            const cover = document.getElementById('coverContainer');
-            cover.classList.add('open');
-        }
-    </script>
-
-</body>
-</html>
+                padding: 30px 20px;
