@@ -31,7 +31,7 @@
             overflow-x: hidden;
         }
 
-        /* Left Sidebar ('Our Story') */
+        /* Left Fixed Sidebar ('Our Story') */
         aside.left-sidebar {
             width: 380px;
             background-image: linear-gradient(rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.88)), url('sidebar bg.jpg');
@@ -131,29 +131,29 @@
             text-align: center;
         }
 
-        /* Middle Scrolling Area for Kyoto Slide */
+        /* Middle Scrolling Area */
         main {
             margin-left: 380px;
             margin-right: 380px;
             flex: 1;
-            padding: 50px;
+            padding: 40px 20px;
             display: flex;
             justify-content: center;
             align-content: start;
-            min-height: 120vh; /* Allows scrolling */
+            min-height: 120vh;
         }
 
-        /* Chapter Card Styling */
+        /* Chapter Card Styling matching sidebar width */
         .chapter {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            padding: 30px 25px;
+            padding: 40px 25px;
             border-radius: 4px;
             box-shadow: 0 10px 25px rgba(181, 124, 116, 0.05);
             position: relative;
-            width: 100%;
-            max-width: 500px;
-            height: 480px;
+            width: 380px;
+            height: calc(100vh - 80px); /* Matches sidebar height padding */
+            max-height: 650px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -170,7 +170,7 @@
             transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1), opacity 1s ease;
             transform-origin: top;
             z-index: 5;
-            padding: 30px 25px;
+            padding: 40px 25px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -195,7 +195,7 @@
 
         .cover-image-container img {
             width: 100%;
-            height: 150px;
+            height: 200px;
             object-fit: cover;
             display: block;
             filter: saturate(0.9) contrast(1.05);
@@ -263,7 +263,7 @@
 
         .chapter-header h2 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             font-weight: 400;
             font-style: italic;
             margin-top: 4px;
@@ -282,7 +282,7 @@
 
         .photo-container img {
             width: 100%;
-            height: 150px;
+            height: 200px;
             object-fit: cover;
             display: block;
             filter: saturate(0.95) contrast(1.02);
@@ -290,11 +290,11 @@
 
         .story-text {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 0.95rem;
+            font-size: 1rem;
             color: #5c504a;
             font-style: italic;
             text-align: center;
-            line-height: 1.4;
+            line-height: 1.5;
         }
 
         /* Mobile Adjustments */
@@ -312,6 +312,10 @@
                 margin-right: 0;
                 padding: 30px 20px;
                 min-height: auto;
+            }
+            .chapter {
+                width: 100%;
+                height: 480px;
             }
         }
     </style>
@@ -338,7 +342,7 @@
         </div>
     </aside>
 
-    <!-- Middle Scrolling Area (Kyoto Slide moves up/down) -->
+    <!-- Middle Scrolling Area (Kyoto Slide) -->
     <main>
         <section id="kyoto" class="chapter">
             <!-- Book Cover View -->
