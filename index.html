@@ -28,10 +28,10 @@
             display: flex;
             min-height: 100vh;
             line-height: 1.8;
-            perspective: 1500px; /* Enables 3D perspective for page flips */
+            perspective: 1500px;
         }
 
-        /* Romantic Sidebar with Custom Background Image */
+        /* Pinned Left Sidebar */
         aside {
             width: 280px;
             background-image: linear-gradient(rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.88)), url('sidebar bg.jpg');
@@ -42,11 +42,13 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            position: fixed;
+            position: fixed; /* Keeps it locked/pinned in place */
+            top: 0;
+            left: 0;
             height: 100vh;
             overflow-y: auto;
             box-shadow: 2px 0 15px rgba(181, 124, 116, 0.04);
-            z-index: 10;
+            z-index: 100;
         }
 
         .book-title {
@@ -109,7 +111,7 @@
             text-align: center;
         }
 
-        /* Main Content Book Pages */
+        /* Main Content Container (Pushed right to make room for the pinned sidebar) */
         main {
             margin-left: 280px;
             flex: 1;
@@ -136,7 +138,7 @@
             overflow: hidden;
             box-shadow: 0 15px 35px rgba(0,0,0,0.1);
             transition: transform 1s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.8s ease;
-            transform-origin: bottom right; /* Flips from the bottom-right corner */
+            transform-origin: bottom right;
             z-index: 5;
             padding: 50px;
             display: flex;
@@ -144,7 +146,6 @@
             justify-content: space-between;
         }
 
-        /* Class triggered when peeling the page */
         .book-cover-container.peel-off {
             transform: rotate(-30deg) translate(-20%, -30%) scale(0.85);
             opacity: 0;
@@ -269,7 +270,7 @@
 </head>
 <body>
 
-    <!-- Left Sidebar -->
+    <!-- Left Sidebar (Pinned in place) -->
     <aside>
         <div class="book-title">
             <h1>Our Story</h1>
@@ -289,13 +290,13 @@
         </div>
     </aside>
 
-    <!-- Right Side Pages -->
+    <!-- Right Side Pages (Scrollable and interactive) -->
     <main>
         
         <!-- Chapter 1 with Page Peel Effect -->
         <section id="kyoto" class="chapter">
             
-            <!-- Cover Page Layer (Sits on top) -->
+            <!-- Cover Page Layer -->
             <div class="book-cover-container" id="coverPage">
                 <div class="chapter-header">
                     <span>Autumn 2024</span>
@@ -306,13 +307,12 @@
                 </div>
                 <p class="story-text">"Tap the bottom-right corner to turn the page..."</p>
                 
-                <!-- Bottom-right corner trigger -->
                 <div class="page-corner-btn" onclick="peelPage()" title="Turn Page">
                     <span>Next ›</span>
                 </div>
             </div>
 
-            <!-- Inside Sub-page Layer (Revealed underneath) -->
+            <!-- Inside Sub-page Layer -->
             <div class="chapter-inner-content">
                 <div class="chapter-header">
                     <span>Autumn 2024</span>
