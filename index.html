@@ -51,7 +51,7 @@
             z-index: 10;
         }
 
-        /* Right Fixed Sidebar ('Forever') matching exact size and style */
+        /* Right Fixed Sidebar ('Forever') */
         aside.right-sidebar {
             width: 380px;
             background-image: linear-gradient(rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.88)), url('side bar right bg.jpg');
@@ -143,17 +143,16 @@
             min-height: 120vh;
         }
 
-        /* Chapter Card Styling matching sidebar width */
+        /* Chapter Card Styling: Increased width to 450px and height to 560px */
         .chapter {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            padding: 40px 25px;
+            padding: 45px 30px;
             border-radius: 4px;
             box-shadow: 0 10px 25px rgba(181, 124, 116, 0.05);
             position: relative;
-            width: 380px;
-            height: calc(100vh - 80px); /* Matches sidebar height padding */
-            max-height: 650px;
+            width: 450px;
+            height: 560px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -170,7 +169,7 @@
             transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1), opacity 1s ease;
             transform-origin: top;
             z-index: 5;
-            padding: 40px 25px;
+            padding: 45px 30px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -195,7 +194,7 @@
 
         .cover-image-container img {
             width: 100%;
-            height: 200px;
+            height: 240px;
             object-fit: cover;
             display: block;
             filter: saturate(0.9) contrast(1.05);
@@ -212,8 +211,8 @@
             align-self: center;
             background: rgba(181, 124, 116, 0.2);
             border: 1px solid rgba(181, 124, 116, 0.6);
-            width: 36px;
-            height: 36px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -254,7 +253,7 @@
         }
 
         .chapter-header span {
-            font-size: 0.7rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             color: var(--accent-color);
@@ -263,7 +262,7 @@
 
         .chapter-header h2 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8rem;
+            font-size: 1.9rem;
             font-weight: 400;
             font-style: italic;
             margin-top: 4px;
@@ -282,7 +281,7 @@
 
         .photo-container img {
             width: 100%;
-            height: 200px;
+            height: 240px;
             object-fit: cover;
             display: block;
             filter: saturate(0.95) contrast(1.02);
@@ -290,7 +289,7 @@
 
         .story-text {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1rem;
+            font-size: 1.05rem;
             color: #5c504a;
             font-style: italic;
             text-align: center;
@@ -315,7 +314,7 @@
             }
             .chapter {
                 width: 100%;
-                height: 480px;
+                height: 520px;
             }
         }
     </style>
