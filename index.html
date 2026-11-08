@@ -272,20 +272,23 @@
 
         .photo-container {
             width: 100%;
+            height: 100%;
             overflow: hidden;
             border-radius: 2px;
             background: #f4ece6;
-            padding: 6px 6px 15px 6px;
+            padding: 6px;
             background-color: #fff;
             box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .photo-container img {
             width: 100%;
-            height: 380px;
+            height: 100%;
             object-fit: cover;
             display: block;
-            filter: saturate(0.95) contrast(1.02);
         }
 
         .story-text {
@@ -344,17 +347,10 @@
 
     <!-- Middle Scrolling Area -->
     <main>
-        <!-- First Slide: Kerala with cover.png (Fully fixed without cover overlay) -->
+        <!-- First Slide: Kerala (Only cover.png displayed cleanly) -->
         <section id="kerala" class="chapter">
-            <div class="chapter-inner-content">
-                <div class="chapter-header">
-                    <span>Autumn 2024</span>
-                    <h2>Kerala</h2>
-                </div>
-                <div class="photo-container">
-                    <img src="cover.png" alt="Kerala Cover">
-                </div>
-                <p class="story-text">"Where the backwaters meet the serene skies, our journey truly began."</p>
+            <div class="photo-container" style="width: 100%; height: 100%;">
+                <img src="cover.png" alt="Kerala Cover" style="width: 100%; height: 100%; object-fit: cover; border-radius: 2px;">
             </div>
         </section>
 
