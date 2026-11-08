@@ -284,6 +284,14 @@
             justify-content: center;
         }
 
+        /* Fully contained fit for cover.png */
+        .photo-container img.fit-cover {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
         .photo-container img {
             width: 100%;
             height: 100%;
@@ -347,10 +355,10 @@
 
     <!-- Middle Scrolling Area -->
     <main>
-        <!-- First Slide: Kerala (Only cover.png displayed cleanly) -->
+        <!-- First Slide: Kerala (cover.png fully contained) -->
         <section id="kerala" class="chapter">
-            <div class="photo-container" style="width: 100%; height: 100%;">
-                <img src="cover.png" alt="Kerala Cover" style="width: 100%; height: 100%; object-fit: cover; border-radius: 2px;">
+            <div class="photo-container" style="width: 100%; height: 100%; background: #fdfbf7;">
+                <img src="cover.png" alt="Kerala Cover" class="fit-cover">
             </div>
         </section>
 
