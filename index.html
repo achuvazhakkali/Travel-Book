@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kerala Chapter - Our Love Story in Travels</title>
+    <title>Our Love Story in Travels</title>
     <!-- Romantic, elegant fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
     <style>
@@ -144,7 +144,7 @@
             min-height: 180vh;
         }
 
-        /* Chapter Card Styling with Reverse Peel Animation Support */
+        /* Chapter Card Styling */
         .chapter {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -157,22 +157,38 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            transform-origin: bottom right;
-            transition: transform 1.2s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 1s ease, box-shadow 1.2s ease;
+            perspective: 1200px;
         }
 
-        .chapter.peel-back {
-            transform: rotate(25deg) translate(100%, 50%) skewX(-15deg);
+        /* Paper Peel-Away Cover Animation */
+        .book-cover-container {
+            position: absolute;
+            inset: 0;
+            background: var(--card-bg);
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transform-origin: top left;
+            transition: transform 1.2s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 1s ease, box-shadow 1.2s ease;
+            z-index: 5;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .book-cover-container.peel-away {
+            transform: rotate(-25deg) translate(-100%, -50%) skewX(15deg);
             opacity: 0;
             pointer-events: none;
-            box-shadow: 30px -30px 50px rgba(0,0,0,0.25);
+            box-shadow: -30px 30px 50px rgba(0,0,0,0.25);
         }
 
-        /* Bottom Left Corner Button Style */
-        .cover-click-icon-bottom-left {
+        /* Bottom Right Corner Button Style (No Shaking) */
+        .cover-click-icon-bottom-right {
             position: absolute;
             bottom: 25px;
-            left: 25px;
+            right: 25px;
             background: rgba(181, 124, 116, 0.25);
             border: 1px solid rgba(181, 124, 116, 0.6);
             width: 42px;
@@ -187,16 +203,15 @@
             z-index: 6;
         }
 
-        .cover-click-icon-bottom-left:hover {
+        .cover-click-icon-bottom-right:hover {
             background: rgba(181, 124, 116, 0.5);
             transform: scale(1.1);
         }
 
-        .cover-click-icon-bottom-left svg {
+        .cover-click-icon-bottom-right svg {
             width: 18px;
             height: 18px;
             fill: #4a403b;
-            transform: rotate(180deg);
         }
 
         .chapter-inner-content {
@@ -241,6 +256,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+
+        .photo-container img.fit-cover {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
         }
 
         .photo-container img {
@@ -292,10 +314,10 @@
         </div>
 
         <nav class="nav-chapters">
-            <h3>Chapter Details</h3>
+            <h3>Chapters of Us</h3>
             <ul>
-                <li><span class="chapter-text">Serene waters, lush greenery, and</span></li>
-                <li><span class="chapter-text">unforgettable memories together.</span></li>
+                <li><span class="chapter-text">Hand in hand, surrounded by nature, and always</span></li>
+                <li><span class="chapter-text">holding each other then letting our love bloom.</span></li>
             </ul>
         </nav>
 
@@ -304,25 +326,63 @@
         </div>
     </aside>
 
-    <!-- Middle Scrolling Area (Chapter Content) -->
+    <!-- Middle Scrolling Area -->
     <main>
-        <section class="chapter" id="chapterCard">
+        <!-- First Slide: Kerala -->
+        <section id="kerala" class="chapter">
+            <div class="photo-container" style="width: 100%; height: 100%; background: #fdfbf7;">
+                <img src="cover.png" alt="Kerala Cover" class="fit-cover">
+            </div>
+        </section>
+
+        <!-- Duplicated First Slide: Kerala with Peel Transition -->
+        <section id="kerala-2" class="chapter">
+            <div class="book-cover-container" id="coverContainerKerala2">
+                <div class="photo-container" style="width: 100%; height: 100%; background: #fdfbf7; padding: 20px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+                    <img src="cover2.jpg" alt="Kerala Cover" style="width: 100%; height: 88%; object-fit: cover; border-radius: 2px; box-shadow: 0 4px 12px rgba(0,0,0,0.06);">
+                    <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-style: italic; color: #4a403b; margin-top: 15px; letter-spacing: 1px;">We start from here</p>
+                </div>
+                <div class="cover-click-icon-bottom-right" onclick="peelAndOpen('coverContainerKerala2', 'subpage2.html')" title="Open Kerala Chapter">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                    </svg>
+                </div>
+            </div>
+
             <div class="chapter-inner-content">
                 <div class="chapter-header">
                     <span>Memories</span>
                     <h2>Kerala, India</h2>
                 </div>
                 <div class="photo-container">
-                    <img src="cover.png" alt="Kerala Scenery">
+                    <img src="cover.png" alt="Kerala View">
                 </div>
-                <p class="story-text">"Sailing through peaceful backwaters as the sun set over the horizon."</p>
+                <p class="story-text">"Backwaters, serene shores, and timeless moments together."</p>
             </div>
+        </section>
 
-            <!-- Bottom Left Back Button with Reverse Peel Transition -->
-            <div class="cover-click-icon-bottom-left" onclick="peelBackAndOpen('chapterCard', 'index.html')" title="Back to Home">
-                <svg viewBox="0 0 24 24">
-                    <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
-                </svg>
+        <!-- Third Slide: New Chapter with Peel Transition (Moved inside main) -->
+        <section id="chapter-3" class="chapter">
+            <div class="book-cover-container" id="coverContainerChapter3">
+                <div class="photo-container" style="width: 100%; height: 100%; background: #fdfbf7; padding: 20px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+                    <img src="cover2.jpg" alt="Cover Image" style="width: 100%; height: 88%; object-fit: cover; border-radius: 2px; box-shadow: 0 4px 12px rgba(0,0,0,0.06);">
+                    <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-style: italic; color: #4a403b; margin-top: 15px; letter-spacing: 1px;">Our Next Chapter</p>
+                </div>
+                <div class="cover-click-icon-bottom-right" onclick="peelAndOpen('coverContainerChapter3', 'subpage3.html')" title="Open Next Chapter">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="chapter-inner-content">
+                <div class="chapter-header">
+                    <span>Memories</span>
+                    <h2>Next Destination</h2>
+                </div>
+                <div class="photo-container">
+                    <img src="cover.png" alt="Chapter View">
+                </div>
+                <p class="story-text">"Your caption or story text goes here."</p>
             </div>
         </section>
     </main>
@@ -348,9 +408,9 @@
     </aside>
 
     <script>
-        function peelBackAndOpen(cardId, targetUrl) {
-            const card = document.getElementById(cardId);
-            card.classList.add('peel-back');
+        function peelAndOpen(containerId, targetUrl) {
+            const cover = document.getElementById(containerId);
+            cover.classList.add('peel-away');
             setTimeout(function() {
                 window.location.href = targetUrl;
             }, 1100);
