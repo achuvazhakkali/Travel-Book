@@ -1,1 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Book - Chapter 3</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f7f4ef;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .page-container {
+            width: 100%;
+            max-width: 800px;
+            background: #fff;
+            padding: 40px;
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: #665c54;
+            font-size: 0.9rem;
+            margin-bottom: 25px;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .back-btn:hover {
+            color: #1a1a1a;
+        }
+
+        .back-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+            transform: rotate(180deg);
+        }
+
+        .content-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .content-header span {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #8c7b70;
+        }
+
+        .content-header h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: #2c2522;
+            margin-top: 5px;
+        }
+
+        .image-gallery {
+            width: 100%;
+            max-height: 450px;
+            overflow: hidden;
+            border-radius: 3px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .image-gallery img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .story-content {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.25rem;
+            line-height: 1.8;
+            color: #4a403b;
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-container">
+        <!-- Back button to return to the main book index -->
+        <a href="[index.html](https://github.com/achuvazhakkali/Travel-Book/blob/main/index.html)" class="back-btn">
+            <svg viewBox="0 0 24 24">
+                <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+            </svg>
+            Back to Journal
+        </a>
+
+        <div class="content-header">
+            <span>Destination Details</span>
+            <h1>Our Next Chapter</h1>
+        </div>
+
+        <div class="image-gallery">
+            <img src="cover.png" alt="Destination View">
+        </div>
+
+        <div class="story-content">
+            <p>"Write your detailed travel memories, stories, or descriptions for this chapter here. This page matches the clean layout of your previous chapters."</p>
+        </div>
+    </div>
+
+</body>
+</html>
