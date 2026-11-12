@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adimaly Chapter - Our Love Story in Travels</title>
+    <title>Kerala Chapter - Our Love Story in Travels</title>
     <!-- Romantic, elegant fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
     <style>
@@ -294,8 +294,8 @@
         <nav class="nav-chapters">
             <h3>Chapter Details</h3>
             <ul>
-                <li><span class="chapter-text">Mist-kissed hills, scenic views, and</span></li>
-                <li><span class="chapter-text">cherished moments shared together.</span></li>
+                <li><span class="chapter-text">Serene waters, lush greenery, and</span></li>
+                <li><span class="chapter-text">unforgettable memories together.</span></li>
             </ul>
         </nav>
 
@@ -310,16 +310,16 @@
             <div class="chapter-inner-content">
                 <div class="chapter-header">
                     <span>Memories</span>
-                    <h2>Adimaly</h2>
+                    <h2>Kerala, India</h2>
                 </div>
                 <div class="photo-container">
-                    <img src="Maincover.jpg" alt="Adimaly Scenery">
+                    <img src="cover.png" alt="Kerala Scenery">
                 </div>
-                <p class="story-text">"Exploring the lush green landscapes and quiet beauty of Adimaly side by side."</p>
+                <p class="story-text">"Sailing through peaceful backwaters as the sun set over the horizon."</p>
             </div>
 
-            <!-- Bottom Left Corner Button with Reverse Peel Transition -->
-            <div class="cover-click-icon-bottom-left" onclick="peelBackAndOpen('chapterCard', 'index.html')" title="Back to Home">
+            <!-- Bottom Left Corner Button targeting index.html#chapter-3 -->
+            <div class="cover-click-icon-bottom-left" onclick="peelBackAndOpen('chapterCard', 'index.html#chapter-3')" title="Back to Adimaly Slide">
                 <svg viewBox="0 0 24 24">
                     <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
                 </svg>
@@ -352,4 +352,10 @@
             const card = document.getElementById(cardId);
             card.classList.add('peel-back');
             setTimeout(function() {
-                window
+                window.location.href = targetUrl;
+            }, 1100);
+        }
+    </script>
+
+</body>
+</html>
