@@ -258,7 +258,6 @@
             justify-content: center;
         }
 
-        /* Fully contained fit for cover.png */
         .photo-container img.fit-cover {
             width: 100%;
             height: 100%;
@@ -329,7 +328,7 @@
 
     <!-- Middle Scrolling Area -->
     <main>
-        <!-- First Slide: Kerala (cover.png fully contained) -->
+        <!-- First Slide: Kerala -->
         <section id="kerala" class="chapter">
             <div class="photo-container" style="width: 100%; height: 100%; background: #fdfbf7;">
                 <img src="cover.png" alt="Kerala Cover" class="fit-cover">
@@ -343,7 +342,6 @@
                     <img src="cover2.jpg" alt="Kerala Cover" style="width: 100%; height: 88%; object-fit: cover; border-radius: 2px; box-shadow: 0 4px 12px rgba(0,0,0,0.06);">
                     <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-style: italic; color: #4a403b; margin-top: 15px; letter-spacing: 1px;">We start from here</p>
                 </div>
-                <!-- Button placed at the bottom right corner with right-pointing arrow and no shaking -->
                 <div class="cover-click-icon-bottom-right" onclick="peelAndOpen('coverContainerKerala2', 'subpage2.html')" title="Open Kerala Chapter">
                     <svg viewBox="0 0 24 24">
                         <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
@@ -362,32 +360,32 @@
                 <p class="story-text">"Backwaters, serene shores, and timeless moments together."</p>
             </div>
         </section>
+
+        <!-- Third Slide: New Chapter with Peel Transition (Moved inside main) -->
+        <section id="chapter-3" class="chapter">
+            <div class="book-cover-container" id="coverContainerChapter3">
+                <div class="photo-container" style="width: 100%; height: 100%; background: #fdfbf7; padding: 20px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+                    <img src="cover2.jpg" alt="Cover Image" style="width: 100%; height: 88%; object-fit: cover; border-radius: 2px; box-shadow: 0 4px 12px rgba(0,0,0,0.06);">
+                    <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-style: italic; color: #4a403b; margin-top: 15px; letter-spacing: 1px;">Our Next Chapter</p>
+                </div>
+                <div class="cover-click-icon-bottom-right" onclick="peelAndOpen('coverContainerChapter3', 'subpage3.html')" title="Open Next Chapter">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="chapter-inner-content">
+                <div class="chapter-header">
+                    <span>Memories</span>
+                    <h2>Next Destination</h2>
+                </div>
+                <div class="photo-container">
+                    <img src="cover.png" alt="Chapter View">
+                </div>
+                <p class="story-text">"Your caption or story text goes here."</p>
+            </div>
+        </section>
     </main>
-    <!-- Third Slide: New Chapter with Peel Transition -->
-    <section id="chapter-3" class="chapter">
-        <div class="book-cover-container" id="coverContainerChapter3">
-            <div class="photo-container" style="width: 100%; height: 100%; background: #fdfbf7; padding: 20px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
-                <img src="cover2.jpg" alt="Cover Image" style="width: 100%; height: 88%; object-fit: cover; border-radius: 2px; box-shadow: 0 4px 12px rgba(0,0,0,0.06);">
-                <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-style: italic; color: #4a403b; margin-top: 15px; letter-spacing: 1px;">Our Next Chapter</p>
-            </div>
-            <!-- Clickable button in the bottom right corner -->
-            <div class="cover-click-icon-bottom-right" onclick="peelAndOpen('coverContainerChapter3', 'subpage3.html')" title="Open Next Chapter">
-                <svg viewBox="0 0 24 24">
-                    <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
-                </svg>
-            </div>
-        </div>
-        <div class="chapter-inner-content">
-            <div class="chapter-header">
-                <span>Memories</span>
-                <h2>Next Destination</h2>
-            </div>
-            <div class="photo-container">
-                <img src="cover.png" alt="Chapter View">
-            </div>
-            <p class="story-text">"Your caption or story text goes here."</p>
-        </div>
-    </section>
 
     <!-- Right Fixed Sidebar ('Forever') -->
     <aside class="right-sidebar">
