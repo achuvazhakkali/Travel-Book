@@ -131,28 +131,6 @@
             text-align: center;
         }
 
-        /* Back to Home Button in Left Sidebar */
-        .back-btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 8px 16px;
-            background: rgba(181, 124, 116, 0.15);
-            border: 1px solid var(--accent-color);
-            color: var(--accent-color);
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-        }
-
-        .back-btn:hover {
-            background: var(--accent-color);
-            color: #fff;
-        }
-
         /* Middle Scrolling Area */
         main {
             margin-left: 380px;
@@ -166,7 +144,15 @@
             min-height: 180vh;
         }
 
-        /* Chapter Card Styling */
+        /* Wrapper to align card and side button horizontally */
+        .chapter-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            position: relative;
+        }
+
+        /* Chapter Card Styling with Reverse Peel Animation Support */
         .chapter {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -179,6 +165,44 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            transform-origin: bottom right;
+            transition: transform 1.2s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 1s ease, box-shadow 1.2s ease;
+        }
+
+        .chapter.peel-back {
+            transform: rotate(25deg) translate(100%, 50%) skewX(-15deg);
+            opacity: 0;
+            pointer-events: none;
+            box-shadow: 30px -30px 50px rgba(0,0,0,0.25);
+        }
+
+        /* Matching External Button Style (placed to the left of the slide) */
+        .side-nav-button {
+            background: rgba(181, 124, 116, 0.25);
+            border: 1px solid rgba(181, 124, 116, 0.6);
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(4px);
+            z-index: 6;
+            flex-shrink: 0;
+        }
+
+        .side-nav-button:hover {
+            background: rgba(181, 124, 116, 0.5);
+            transform: scale(1.1);
+        }
+
+        .side-nav-button svg {
+            width: 18px;
+            height: 18px;
+            fill: #4a403b;
+            transform: rotate(180deg); /* Points back to home */
         }
 
         .chapter-inner-content {
@@ -257,6 +281,11 @@
                 padding: 30px 20px;
                 min-height: auto;
             }
+            .chapter-wrapper {
+                flex-direction: column;
+                width: 100%;
+                gap: 15px;
+            }
             .chapter {
                 width: 100%;
                 height: 520px;
@@ -271,7 +300,6 @@
         <div class="book-title">
             <h1>Our Story</h1>
             <p>Everywhere with You</p>
-            <a href="index.html" class="back-btn">← Back to Home</a>
         </div>
 
         <nav class="nav-chapters">
@@ -289,18 +317,27 @@
 
     <!-- Middle Scrolling Area (Chapter Content) -->
     <main>
-        <section class="chapter">
-            <div class="chapter-inner-content">
-                <div class="chapter-header">
-                    <span>Memories</span>
-                    <h2>Kerala, India</h2>
-                </div>
-                <div class="photo-container">
-                    <img src="cover.png" alt="Kerala Scenery">
-                </div>
-                <p class="story-text">"Sailing through peaceful backwaters as the sun set over the horizon."</p>
+        <div class="chapter-wrapper">
+            <!-- Matching Button Positioned Left of the Slide -->
+            <div class="side-nav-button" onclick="peelBackAndOpen('chapterCard', 'index.html')" title="Back to Home">
+                <svg viewBox="0 0 24 24">
+                    <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                </svg>
             </div>
-        </section>
+
+            <section class="chapter" id="chapterCard">
+                <div class="chapter-inner-content">
+                    <div class="chapter-header">
+                        <span>Memories</span>
+                        <h2>Kerala, India</h2>
+                    </div>
+                    <div class="photo-container">
+                        <img src="cover.png" alt="Kerala Scenery">
+                    </div>
+                    <p class="story-text">"Sailing through peaceful backwaters as the sun set over the horizon."</p>
+                </div>
+            </section>
+        </div>
     </main>
 
     <!-- Right Fixed Sidebar ('Forever') -->
@@ -322,6 +359,16 @@
             <p>♥</p>
         </div>
     </aside>
+
+    <script>
+        function peelBackAndOpen(cardId, targetUrl) {
+            const card = document.getElementById(cardId);
+            card.classList.add('peel-back');
+            setTimeout(function() {
+                window.location.href = targetUrl;
+            }, 1100);
+        }
+    </script>
 
 </body>
 </html>
